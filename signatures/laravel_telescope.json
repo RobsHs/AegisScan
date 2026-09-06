@@ -9,3 +9,4 @@
   "description": "The Laravel Telescope introspection panel is publicly accessible, leaking full HTTP request payloads, database queries, and session headers.",
   "remediation": "Restrict access to Telescope using the 'Telescope::auth' gate in TelescopeServiceProvider to authorized administrators only."
 }
+

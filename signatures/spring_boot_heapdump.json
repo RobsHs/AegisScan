@@ -9,3 +9,4 @@
   "description": "The Spring Boot Actuator heapdump endpoint allows anonymous downloading of server RAM, which contains decrypted passwords, cryptographic keys, and cached tokens.",
   "remediation": "Disable the heapdump actuator endpoint in application.properties by setting 'management.endpoint.heapdump.enabled=false'."
 }
+

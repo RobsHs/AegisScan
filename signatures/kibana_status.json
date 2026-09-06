@@ -9,3 +9,4 @@
   "description": "Kibana diagnostic status endpoint is accessible without authentication, revealing Elasticsearch cluster topology and versions.",
   "remediation": "Place Kibana behind an authenticating reverse proxy or enable Elastic Stack security features."
 }
+

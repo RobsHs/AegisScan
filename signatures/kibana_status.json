@@ -1,0 +1,11 @@
+{
+  "id": "SIG-KIBANA-01",
+  "name": "Exposed Kibana Diagnostic Status",
+  "path": "/api/status",
+  "category": "DevOps & Monitoring",
+  "severity": "MEDIUM",
+  "pattern": "kibana|version.*status.*overall",
+  "title": "Exposed Kibana Diagnostic API (/api/status)",
+  "description": "Kibana diagnostic status endpoint is accessible without authentication, revealing Elasticsearch cluster topology and versions.",
+  "remediation": "Place Kibana behind an authenticating reverse proxy or enable Elastic Stack security features."
+}

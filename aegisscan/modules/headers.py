@@ -297,3 +297,4 @@ def audit_headers(headers: Dict[str, str], url: str) -> Tuple[List[HeaderAuditIt
             )
 
     return audit_items, findings
+

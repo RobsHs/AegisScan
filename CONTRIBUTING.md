@@ -5,10 +5,12 @@ Thank you for your interest in contributing to **AegisScan**! We welcome contrib
 ## How to Contribute
 
 ### 1. Reporting Bugs
+
 - Search existing issues to ensure the bug hasn't already been reported.
 - Open a new issue with a clear title, environment details (OS, Python version), steps to reproduce, and actual vs expected behavior.
 
 ### 2. Suggesting Enhancements & New Modules
+
 - We love new audit modules! Ideas:
   - Subdomain takeover detection
   - HTTP request smuggling heuristics
@@ -16,6 +18,7 @@ Thank you for your interest in contributing to **AegisScan**! We welcome contrib
 - Open an issue describing your proposed feature and how it benefits the security community.
 
 ### 3. Submitting Pull Requests
+
 1. Fork the repository on GitHub.
 2. Clone your fork locally:
    ```bash
@@ -42,5 +45,6 @@ Thank you for your interest in contributing to **AegisScan**! We welcome contrib
 8. Push to your branch and submit a Pull Request!
 
 ## Code Style & Ethics
+
 - Write clean, type-annotated Python 3.9+ code.
 - Keep defensive and audit tools safe, ethical, and aligned with standard security research practices.

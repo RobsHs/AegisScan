@@ -1,0 +1,11 @@
+{
+  "id": "SIG-SPRING-01",
+  "name": "Exposed Spring Boot Heap Dump",
+  "path": "/actuator/heapdump",
+  "category": "Framework Endpoints",
+  "severity": "CRITICAL",
+  "pattern": "JAVA PROFILE",
+  "title": "Publicly Downloadable JVM Memory Heap Dump (/actuator/heapdump)",
+  "description": "The Spring Boot Actuator heapdump endpoint allows anonymous downloading of server RAM, which contains decrypted passwords, cryptographic keys, and cached tokens.",
+  "remediation": "Disable the heapdump actuator endpoint in application.properties by setting 'management.endpoint.heapdump.enabled=false'."
+}

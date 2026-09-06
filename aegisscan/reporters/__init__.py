@@ -11,3 +11,4 @@ __all__ = [
     "generate_html_report",
     "generate_json_report",
 ]
+

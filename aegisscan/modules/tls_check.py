@@ -192,3 +192,4 @@ def audit_tls(url: str, timeout: float = 6.0) -> Tuple[Optional[TlsAuditItem], L
     )
 
     return audit_item, findings
+

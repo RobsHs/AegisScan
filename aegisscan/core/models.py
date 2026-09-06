@@ -251,3 +251,4 @@ class ScanResult:
             "dns_mail": self.dns_mail.to_dict() if self.dns_mail else None,
             "cors": self.cors.to_dict() if self.cors else None,
         }
+

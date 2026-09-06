@@ -1,0 +1,29 @@
+name: "⚠️ False Positive Report"
+description: "Report a check that falsely identified an issue on a secure endpoint"
+title: "[FALSE-POSITIVE]: "
+labels: ["false-positive", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        AegisScan aims for zero false positives. If a check triggered incorrectly, report it here.
+  - type: input
+    id: finding-id
+    attributes:
+      label: Finding ID / Title
+      placeholder: "e.g., SEC-EXP-1234 or Exposed Environment Configuration (.env)"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Why is this a False Positive?
+      description: Explain why the response was benign or why the signature matched inappropriately (e.g. custom 404 HTML).
+      placeholder: The server returned a 200 SPA page that contained the matched keyword in a generic bundle...
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: How should the signature or check be refined to avoid this?

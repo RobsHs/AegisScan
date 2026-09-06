@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerability Report
+    url: https://github.com/RobsHs/AegisScan/security/advisories/new
+    about: Please report security vulnerabilities privately via GitHub Security Advisories or email.
+  - name: Discussions & Ideas
+    url: https://github.com/RobsHs/AegisScan/discussions
+    about: Discuss new features, DevSecOps ideas, and general feedback.

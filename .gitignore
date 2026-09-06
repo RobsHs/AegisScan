@@ -53,3 +53,5 @@ Thumbs.db
 *.html
 *.json
 !tests/**/*.json
+!signatures/**/*.json
+

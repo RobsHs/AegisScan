@@ -176,3 +176,4 @@ def audit_dns_mail(url: str, timeout: float = 4.0) -> Tuple[Optional[DnsMailAudi
         audit_item.dnssec_enabled = False
 
     return audit_item, findings
+

@@ -1,0 +1,36 @@
+name: "✨ Feature Request"
+description: "Suggest a new capability, export format, or performance improvement"
+title: "[FEATURE]: "
+labels: ["enhancement", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to make AegisScan better? Propose it here!
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a specific challenge or limitation?
+      placeholder: Describe the motivation...
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution / Feature
+      description: Describe your proposed feature and how it should work.
+      placeholder: Detailed proposal...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions or workarounds you've thought of?
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I am willing to submit a Pull Request to implement this feature!

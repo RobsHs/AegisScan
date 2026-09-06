@@ -32,6 +32,15 @@ class TestExposureSignatures(unittest.TestCase):
         self.assertTrue(sig.search("CREATE TABLE users (id INT PRIMARY KEY);"))
         self.assertTrue(sig.search("-- MySQL dump 10.13"))
 
+    def test_community_signatures_loaded(self):
+        from aegisscan.modules.exposure import load_community_signatures
+        sigs = load_community_signatures()
+        self.assertGreater(len(sigs), 0)
+        # Check that laravel telescope or kibana exists
+        paths = [s["path"] for s in sigs]
+        self.assertIn("/telescope/requests", paths)
+
 
 if __name__ == "__main__":
     unittest.main()
+

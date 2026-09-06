@@ -1,0 +1,64 @@
+name: "🔍 Propose New Security Audit Check / Signature"
+description: "Suggest a new vulnerability check, exposed path, or header analysis"
+title: "[NEW-CHECK]: "
+labels: ["security-check", "good first issue", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us expand AegisScan's audit engine! Propose new checks, misconfiguration tests, or sensitive path signatures.
+  - type: input
+    id: check-name
+    attributes:
+      label: Check Name
+      placeholder: "e.g., Detect Exposed Laravel Telescope /telescope"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Sensitive Exposure & Leaks
+        - Security Headers
+        - SSL/TLS & Cryptography
+        - DNS & Mail Protection
+        - CORS & Access Control
+        - API Security (GraphQL/REST)
+        - CMS & Framework Specific
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Suggested Severity
+      options:
+        - CRITICAL
+        - HIGH
+        - MEDIUM
+        - LOW
+        - INFO
+    validations:
+      required: true
+  - type: textarea
+    id: detection-logic
+    attributes:
+      label: Detection Logic & Signatures
+      description: What path, header, or response pattern indicates this vulnerability?
+      placeholder: "Target path: /telescope\nMatching regex: <title>Telescope</title>\nStatus code: 200"
+    validations:
+      required: true
+  - type: textarea
+    id: remediation
+    attributes:
+      label: Remediation Advice
+      description: How should developers fix or mitigate this finding?
+      placeholder: "Restrict /telescope access to local environments..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: pr-ready
+    attributes:
+      label: PR Contribution
+      options:
+        - label: I would like to implement this check in a Pull Request!

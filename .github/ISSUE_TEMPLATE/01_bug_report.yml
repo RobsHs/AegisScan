@@ -1,0 +1,49 @@
+name: "🐛 Bug Report"
+description: "File a bug report or unexpected scan behavior"
+title: "[BUG]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue in AegisScan!
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the problem...
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command Executed
+      description: What CLI command was run?
+      placeholder: aegisscan https://example.com --output-html report.html
+    validations:
+      required: true
+  - type: textarea
+    id: traceback
+    attributes:
+      label: Terminal Output / Traceback
+      description: Paste any error messages or tracebacks here.
+      render: shell
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Windows
+        - Linux (Ubuntu/Debian)
+        - Linux (Arch/Fedora/CentOS)
+        - macOS
+    validations:
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      placeholder: "e.g., Python 3.11.9"
+    validations:
+      required: true

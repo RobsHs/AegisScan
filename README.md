@@ -21,7 +21,7 @@
 </p>
 
 ```
-     _    _____ ____ ___ ____  ____   ____    _    _   _ 
+     _    _____ ____ ___ ____  ____   ____    _    _   _
     / \  | ____/ ___|_ _/ ___|/ ___| / ___|  / \  | \ | |
    / _ \ |  _|| |  _ | |\___ \\___ \| |     / _ \ |  \| |
   / ___ \| |__| |_| || | ___) |___) | |___ / ___ \| |\  |
@@ -43,17 +43,17 @@ Modern applications frequently suffer from missing defense-in-depth security hea
 
 ## ✨ Key Features
 
-| Capability | Description |
-| :--- | :--- |
-| **⚡ Asynchronous Core** | Concurrently checks headers, SSL/TLS, DNS records, and exposures in parallel (< 3 seconds total runtime). |
-| **🛡️ OWASP Secure Headers** | Evaluates CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy with remediation guidance. |
-| **🍪 Cookie Flag Inspector** | Audits session tokens for missing `Secure`, `HttpOnly`, and `SameSite` flags, plus cookie prefixes (`__Host-`, `__Secure-`). |
+| Capability                       | Description                                                                                                                                                                                                                       |
+| :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **⚡ Asynchronous Core**         | Concurrently checks headers, SSL/TLS, DNS records, and exposures in parallel (< 3 seconds total runtime).                                                                                                                         |
+| **🛡️ OWASP Secure Headers**      | Evaluates CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy with remediation guidance.                                                                                                  |
+| **🍪 Cookie Flag Inspector**     | Audits session tokens for missing `Secure`, `HttpOnly`, and `SameSite` flags, plus cookie prefixes (`__Host-`, `__Secure-`).                                                                                                      |
 | **🔍 Sensitive Exposure Hunter** | Scans for exposed `.env`, `.git/HEAD`, AWS credentials, Dockerfiles, database backups (`.sql`, `.sqlite3`), and debug endpoints (`phpinfo`, Spring Actuators) with **smart signature verification** to eliminate false positives. |
-| **🔒 SSL/TLS Health Analysis** | Inspects certificate expiration, issuer, legacy protocols (TLS 1.0/1.1), and self-signed certificate alerts. |
-| **📧 DNS & Email Defense** | Validates SPF (`v=spf1`), DMARC (`p=reject`/`p=quarantine`/`p=none`), and MX records to prevent domain spoofing and spear-phishing. |
-| **🌐 CORS Misconfiguration** | Detects dangerous origin reflection and credential exposure (CWE-942). |
-| **📊 Multi-Format Reporting** | Gorgeous terminal output (via Rich), structured JSON for pipelines, and interactive standalone HTML dashboards. |
-| **🚦 DevSecOps Gatekeeper** | Native `--fail-on <severity>` flag to automatically fail CI/CD build pipelines if security vulnerabilities are found. |
+| **🔒 SSL/TLS Health Analysis**   | Inspects certificate expiration, issuer, legacy protocols (TLS 1.0/1.1), and self-signed certificate alerts.                                                                                                                      |
+| **📧 DNS & Email Defense**       | Validates SPF (`v=spf1`), DMARC (`p=reject`/`p=quarantine`/`p=none`), and MX records to prevent domain spoofing and spear-phishing.                                                                                               |
+| **🌐 CORS Misconfiguration**     | Detects dangerous origin reflection and credential exposure (CWE-942).                                                                                                                                                            |
+| **📊 Multi-Format Reporting**    | Gorgeous terminal output (via Rich), structured JSON for pipelines, and interactive standalone HTML dashboards.                                                                                                                   |
+| **🚦 DevSecOps Gatekeeper**      | Native `--fail-on <severity>` flag to automatically fail CI/CD build pipelines if security vulnerabilities are found.                                                                                                             |
 
 ---
 
@@ -143,9 +143,9 @@ name: Web Security Audit
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   schedule:
-    - cron: '0 0 * * 1' # Weekly scan
+    - cron: "0 0 * * 1" # Weekly scan
 
 jobs:
   audit:
@@ -157,7 +157,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install AegisScan
         run: pip install git+https://github.com/RobsHs/AegisScan.git

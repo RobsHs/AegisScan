@@ -125,3 +125,4 @@ async def audit_cors(url: str, timeout: float = 5.0) -> Tuple[Optional[CorsAudit
 
     except Exception:
         return CorsAuditItem(tested=False), findings
+

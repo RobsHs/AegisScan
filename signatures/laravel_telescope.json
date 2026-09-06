@@ -1,0 +1,11 @@
+{
+  "id": "SIG-LARAVEL-01",
+  "name": "Exposed Laravel Telescope Dashboard",
+  "path": "/telescope/requests",
+  "category": "Framework Diagnostics",
+  "severity": "HIGH",
+  "pattern": "(<title>Telescope</title>|window\\.Telescope)",
+  "title": "Exposed Laravel Telescope Debug Dashboard",
+  "description": "The Laravel Telescope introspection panel is publicly accessible, leaking full HTTP request payloads, database queries, and session headers.",
+  "remediation": "Restrict access to Telescope using the 'Telescope::auth' gate in TelescopeServiceProvider to authorized administrators only."
+}

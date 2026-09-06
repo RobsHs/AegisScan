@@ -191,6 +191,40 @@ EXPOSURE_TARGETS = [
 ]
 
 
+def load_community_signatures(signatures_dir: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Loads community custom signatures from JSON files."""
+    import json
+    from pathlib import Path
+
+    loaded = []
+    search_dirs = [
+        Path(signatures_dir) if signatures_dir else None,
+        Path("signatures"),
+        Path(__file__).resolve().parent.parent.parent / "signatures",
+    ]
+    for s_dir in search_dirs:
+        if s_dir and s_dir.is_dir():
+            for json_file in s_dir.glob("*.json"):
+                try:
+                    data = json.loads(json_file.read_text(encoding="utf-8"))
+                    if isinstance(data, dict) and "path" in data and "pattern" in data:
+                        sev_str = data.get("severity", "MEDIUM").upper()
+                        severity = getattr(Severity, sev_str, Severity.MEDIUM)
+                        loaded.append({
+                            "path": data["path"],
+                            "category": data.get("category", "Community Signature"),
+                            "severity": severity,
+                            "signature": re.compile(data["pattern"], re.IGNORECASE),
+                            "title": data.get("title", f"Exposed {data['path']}"),
+                            "desc": data.get("description", "Exposed sensitive file or endpoint detected by community signature."),
+                            "remediation": data.get("remediation", "Restrict access or delete sensitive resource."),
+                        })
+                except Exception:
+                    continue
+            break
+    return loaded
+
+
 async def _check_single_path(
     client: httpx.AsyncClient,
     base_url: str,
@@ -279,10 +313,13 @@ async def audit_exposure(base_url: str, max_concurrency: int = 8) -> Tuple[List[
     audit_items: List[ExposureAuditItem] = []
     findings: List[Finding] = []
 
+    # Merge core targets with community-contributed signatures
+    all_targets = list(EXPOSURE_TARGETS) + load_community_signatures()
+
     async with httpx.AsyncClient(verify=False) as client:
         tasks = [
             _check_single_path(client, base_url, target, semaphore)
-            for target in EXPOSURE_TARGETS
+            for target in all_targets
         ]
         results = await asyncio.gather(*tasks)
 
@@ -295,3 +332,4 @@ async def audit_exposure(base_url: str, max_concurrency: int = 8) -> Tuple[List[
     # Sort audit items: exposed first, then by risk
     audit_items.sort(key=lambda x: (not x.exposed, x.path))
     return audit_items, findings
+

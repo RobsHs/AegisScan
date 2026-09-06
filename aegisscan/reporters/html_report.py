@@ -558,3 +558,4 @@ def generate_html_report(result: ScanResult, output_path: str) -> None:
 </html>
 """
     Path(output_path).write_text(html_content, encoding="utf-8")
+

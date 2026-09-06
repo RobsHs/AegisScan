@@ -235,3 +235,4 @@ class AegisScanner:
             dns_mail=dns_item,
             cors=cors_item,
         )
+
